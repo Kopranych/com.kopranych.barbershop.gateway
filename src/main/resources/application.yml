@@ -1,0 +1,20 @@
+zuul:
+  prefix: /api
+  stripPrefix: false
+  routes:
+    clients:
+      path: /clients/**
+      serviceId: clients
+      stripPrefix: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread.timeoutInMilliseconds: 16000
+ribbon:
+  restclient:
+    enabled: true
+  ReadTimeout: 4000
+  ConnectTimeout: 4000
